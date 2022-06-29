@@ -1,0 +1,159 @@
+SQL Basics Assignment
+
+Q1)Create a CITY table with the following column.
+The CITY table is described as follows:
+
+Query all columns for all American cities in the CITY table with
+populations larger than 100000. The CountryCode for America is USA.
+
+Sample input:
+|3878| Scottsdale | USA | Arizona | 202705 |
+|3965| Corona | USA | California | 90000 |
+|3973| Concord | USA | California | 121780 |
+|3977| Cedar Rapids| USA | Iowa | 120758 |
+|3982| Coral Springs| USA |Florida | 87456 |
+
+
+=============================================================================================
+
+1. create database
+> ex -- create database sb101;
+-----------------------------------
+2. check=>  show databases;
+----------------------------------
+3. show table=>
+  ex=>  show tables;
+-----------------------------------
+4. create table 
+ex=>
+
+create table city(
+Id int,
+Name varchar(17),
+CountryCode varchar(3),
+District varchar(20),
+Population int);
+------------------------------------------
+5. give value
+
+ex=>
+insert into city values(3878,"Scotttsdale","USA","Arizona",202705);
+
+insert into city values(3965,"Corona","USA","California",90000);
+
+insert into city values(3973,"Concord","USA","California",121780);
+
+insert into city values(3977,"Cedar Rapids","USA","lowa",120758);
+
+insert into city values(3982,"Coral Springs","USA","Florida",87456);
+------------------------------------------------------------------------------
+6. once check 
+ex=>
+
+select * from city;
+
+select * from city;
++------+---------------+-------------+------------+------------+
+| Id   | Name          | CountryCode | District   | Population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scotttsdale   | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | lowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+-------------------------------------------------------------
+
+7. Query all columns for all American cities in the CITY table with
+populations larger than 100000. The CountryCode for America is USA.
+
+
+Query ans =>
+
+
+select * from city where Population >100000 AND CountryCode ="USA";
+
+ select * from city where Population >100000 AND CountryCode ="USA";
++------+--------------+-------------+------------+------------+
+| Id   | Name         | CountryCode | District   | Population |
++------+--------------+-------------+------------+------------+
+| 3878 | Scotttsdale  | USA         | Arizona    |     202705 |
+| 3973 | Concord      | USA         | California |     121780 |
+| 3977 | Cedar Rapids | USA         | lowa       |     120758 |
++------+--------------+-------------+------------+------------+
+
+
+=========================================================================================================
+
+
+Ques 2.
+
+Q2) Query the total population of all cities in CITY where
+District is California
+
+select * from city;
++------+---------------+-------------+------------+------------+
+| Id   | Name          | CountryCode | District   | Population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scotttsdale   | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | lowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+
+Query =>ans
+
+select SUM(Population) from city where District = "California";
+
+select SUM(Population) from city where District = "California";
++-----------------+
+| SUM(Population) |
++-----------------+
+|          211780 |
++-----------------+
+
+
+
+
+
+========================================================================================================
+Ques 3.
+Query the average population for all cities in CITY, rounded
+down to the nearest integer.
+The CITY table is described as follows:
+
+
+select * from city;
++------+---------------+-------------+------------+------------+
+| Id   | Name          | CountryCode | District   | Population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scotttsdale   | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | lowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+
+
+Ques.=>
+
+Query the average population for all cities in CITY, rounded
+down to the nearest integer
+
+Ans=>>
+
+select Round(AVG(Population)) as AvgPopulation from city;
+
+ select Round(AVG(Population)) as AvgPopulation from city;
++---------------+
+| AvgPopulation |
++---------------+
+|        124540 |
++---------------+
+
+
+
+
+
